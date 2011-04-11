@@ -45,6 +45,9 @@ do
 		fi
 
 		xelatex "$file_name.tex"
+		biber --fastsort "$file_name"
+		makeglossaries "$file_name"
+		xelatex "$file_name.tex"
 		xelatex "$file_name.tex"
 		xelatex "$file_name.tex"
 	
