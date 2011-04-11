@@ -1158,7 +1158,7 @@ static void print_latex_element(GString *out, element *elt) {
                         g_string_append_printf(out, " \\citet[");
                         elt->contents.str[strlen(elt->contents.str) - 1] = '\0';
                     } else {
-                        g_string_append_printf(out, "~\\citep[");
+                        g_string_append_printf(out, "\\autocite[");
                     }
                     print_latex_element(out,elt->children);
                     g_string_append_printf(out, "]{%s}",&elt->contents.str[2]);
@@ -1167,7 +1167,7 @@ static void print_latex_element(GString *out, element *elt) {
                         elt->contents.str[strlen(elt->contents.str) - 1] = '\0';
                         g_string_append_printf(out, " \\citet{%s}", &elt->contents.str[2]);
                     } else {
-                        g_string_append_printf(out, "~\\citep{%s}", &elt->contents.str[2]);
+                        g_string_append_printf(out, "\\autocite{%s}", &elt->contents.str[2]);
                     }
                 }
             }
@@ -1185,7 +1185,7 @@ static void print_latex_element(GString *out, element *elt) {
                         g_string_append_printf(out, " \\citet[");
                         elt->contents.str[strlen(elt->contents.str) - 1] = '\0';
                     } else {
-                        g_string_append_printf(out, "~\\citep[");
+                        g_string_append_printf(out, "\\autocite[");
                     }
                     print_latex_element(out,elt->children);
                     g_string_append_printf(out, "]{%s}",elt->contents.str);
@@ -1198,7 +1198,7 @@ static void print_latex_element(GString *out, element *elt) {
                         elt->contents.str[strlen(elt->contents.str) - 1] = '\0';
                         g_string_append_printf(out, " \\citet{%s}", elt->contents.str);
                     } else {
-                        g_string_append_printf(out, "~\\citep{%s}", elt->contents.str);
+                        g_string_append_printf(out, "\\autocite{%s}", elt->contents.str);
                     }
                 }
             }
